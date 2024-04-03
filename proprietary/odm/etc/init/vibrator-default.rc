@@ -1,5 +1,5 @@
 on late-fs
-
+#ifdef OPLUS_FEATURE_CHG_BASIC
 #Qingjun.Wang@Tech.BSP.Haptic, 2020/04/15,  Add for vibration dev file
     # This allows the ledtrig-transient properties to be created here so
    # that they can be chown'd to system:system later on boot
@@ -32,7 +32,7 @@ on late-fs
     chown system system /sys/class/qcom-haptics/lra_calibration
     chown system system /sys/class/qcom-haptics/lra_frequency_hz
     chown system system /sys/class/qcom-haptics/lra_impedance
-
+#endif /* OPLUS_FEATURE_CHG_BASIC */
     chmod 0666 /dev/awinic_haptic
 service vendor.oplus.vibrator-default /odm/bin/hw/vendor.oplus.hardware.vibrator-service
     class hal
